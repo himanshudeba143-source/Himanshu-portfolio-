@@ -4,41 +4,44 @@
 <meta charset="UTF-8">
 <title>Himanshu Shekhar | Cybersecurity Portfolio</title>
 
-<!-- Font Awesome Icons -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
 }
 html,body{
+    width:100%;
     height:100%;
     overflow:hidden;
     background:#010814;
+    font-family:'Segoe UI',sans-serif;
 }
 canvas{
     position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
+    inset:0;
+    z-index:-2;
 }
 
 /* Pages */
 .page{
     position:absolute;
-    width:100%;
-    height:100%;
+    width:100vw;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     color:white;
-    transition:0.6s ease;
+    transition:0.7s ease;
 }
 #page2{
-    background:rgba(0,0,0,0.9);
+    background:rgba(0,0,0,0.85);
     transform:translateX(100%);
 }
 
@@ -49,10 +52,19 @@ canvas{
 }
 
 /* Headings */
-h1{font-size:3rem;}
+h1{
+    font-size:3.2rem;
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:2px;
+}
 h1 span{color:#00f5ff;}
-h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
+h2{
+    margin:15px 0 25px;
+    color:#cfd9ff;
+    font-weight:300;
+}
 
+/* Quote */
 .quote{
     font-style:italic;
     font-size:1.2rem;
@@ -74,10 +86,10 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
 .btn:hover{
     background:#00f5ff;
     color:black;
-    box-shadow:0 0 20px #00f5ff;
+    box-shadow:0 0 25px #00f5ff;
 }
 
-/* Page 2 */
+/* Back Button */
 .back-btn{
     position:absolute;
     top:20px;
@@ -87,6 +99,7 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
     color:#00f5ff;
 }
 
+/* About */
 .about-title{
     font-size:2.5rem;
     margin-bottom:20px;
@@ -103,17 +116,31 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:20px;
-    margin:40px 0;
+    gap:25px;
+    margin:45px 0;
 }
 .tool{
-    padding:12px 22px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 24px;
     border:1px solid #00f5ff;
-    border-radius:20px;
+    border-radius:18px;
+    color:#00f5ff;
+    font-size:1rem;
+    transition:0.4s;
     animation:float 3s ease-in-out infinite;
 }
-.tool:nth-child(odd){animation-delay:1s;}
+.tool i{
+    font-size:1.4rem;
+}
+.tool:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 20px #00f5ff;
+    background:rgba(0,245,255,0.08);
+}
 
+/* Floating Animation */
 @keyframes float{
     0%,100%{transform:translateY(0)}
     50%{transform:translateY(-10px)}
@@ -132,23 +159,24 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
     transition:0.3s;
 }
 .contact-icons a:hover{
-    transform:scale(1.2);
-    text-shadow:0 0 15px #00f5ff;
+    transform:scale(1.25);
+    text-shadow:0 0 18px #00f5ff;
 }
 
-/* CV Button */
-.cv-btn{
-    margin-top:30px;
-}
+/* CV */
+.cv-btn{margin-top:30px;}
 
-/* HS Tag */
+/* HS TAG TOP LEFT */
 .tag{
     position:fixed;
-    bottom:20px;
-    right:20px;
-    font-weight:bold;
+    top:18px;
+    right:18px;
+    font-family:'Orbitron',sans-serif;
+    font-size:1.2rem;
     color:#00f5ff;
-    letter-spacing:2px;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #00f5ff;
+    z-index:10;
 }
 </style>
 </head>
@@ -157,11 +185,13 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
 
 <canvas id="particles"></canvas>
 
+<div class="tag">HS</div>
+
 <!-- PAGE 1 -->
 <div class="page" id="page1">
     <div class="overlay">
         <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
-        <h2>a amorous Cybersecurity fresher</h2>
+        <h2>A Amorous Cybersecurity Fresher</h2>
 
         <p class="quote">
             “All power is within you: you can do anything and everything”
@@ -181,53 +211,42 @@ h2{margin:15px 0 25px;color:#cfd9ff;font-weight:300;}
         <h1 class="about-title">ABOUT</h1>
 
         <p class="about-text">
-            Motivated B.Tech student (2022–2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
+Motivated B.Tech student (2022–2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
 
-              Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in AI/ML technologies.
+Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in AI/ML technologies.
 
-              An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
+An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
             I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
             network security, vulnerability assessment, and cyber defense mechanisms.
-            I continuously learn and practice modern security tools to protect systems
-            from real-world threats.
         </p>
 
         <div class="tools">
-            <div class="tool">Nmap</div>
-            <div class="tool">Wireshark</div>
-            <div class="tool">Burp Suite</div>
-            <div class="tool">Metasploit</div>
-            <div class="tool">Kali Linux</div>
+            <div class="tool"><i class="fas fa-network-wired"></i> Nmap</div>
+            <div class="tool"><i class="fas fa-wave-square"></i> Wireshark</div>
+            <div class="tool"><i class="fas fa-bug"></i> Burp Suite</div>
+            <div class="tool"><i class="fas fa-skull-crossbones"></i> Metasploit</div>
+            <div class="tool"><i class="fab fa-linux"></i> Kali Linux</div>
         </div>
 
-        <!-- Contact Icons -->
         <div class="contact-icons">
-            <a href="tel:+918093445600" title="Contact">
-                <i class="fas fa-phone"></i>
-            </a>
-
-            <a href="https://www.instagram.com/" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
+            <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
+            <a href="https:https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
 
-        <!-- Download CV -->
         <div class="cv-btn">
-            <a href="Himanshu_Shekhar_CV.pdf" download class="btn">
+            <a href="Himashu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
                 <i class="fas fa-download"></i> Download CV
             </a>
         </div>
     </div>
 </div>
 
-<div class="tag">HS</div>
-
 <script>
 /* Page Navigation */
+const page1=document.getElementById("page1");
+const page2=document.getElementById("page2");
+
 function openPortfolio(){
     page1.style.transform="translateX(-100%)";
     page2.style.transform="translateX(0)";
@@ -237,31 +256,38 @@ function goBack(){
     page2.style.transform="translateX(100%)";
 }
 
-/* Particles */
+/* PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;
-canvas.height=innerHeight;
+
+function resize(){
+    canvas.width=innerWidth;
+    canvas.height=innerHeight;
+}
+resize();
+addEventListener("resize",resize);
 
 let particles=[];
-for(let i=0;i<150;i++){
+for(let i=0;i<220;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        r:Math.random()*1.5,
-        dx:(Math.random()-0.5)*0.4,
-        dy:(Math.random()-0.5)*0.4
+        r:Math.random()*1.4+0.4,
+        dx:(Math.random()-0.5)*0.5,
+        dy:(Math.random()-0.5)*0.5,
+        a:Math.random()*0.8+0.2
     });
 }
+
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="white";
     particles.forEach(p=>{
         p.x+=p.dx;
         p.y+=p.dy;
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
         ctx.beginPath();
+        ctx.fillStyle=`rgba(255,255,255,${p.a})`;
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         ctx.fill();
     });
