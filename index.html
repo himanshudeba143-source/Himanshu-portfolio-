@@ -4,20 +4,6 @@
 <meta charset="UTF-8">
 <title>Himanshu Shekhar | Cybersecurity Portfolio</title>
 
-<!-- ===== OPEN GRAPH META TAGS ===== -->
-<meta property="og:title" content="Himanshu Shekhar | Cybersecurity Portfolio">
-<meta property="og:description" content="An amorous Cybersecurity fresher passionate about ethical hacking, network security, vulnerability assessment, and cyber defense.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="image.png">
-<meta property="og:url" content="https://your-username.github.io/your-repo-name/">
-<meta property="og:site_name" content="Himanshu Shekhar Portfolio">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Himanshu Shekhar | Cybersecurity Portfolio">
-<meta name="twitter:description" content="Cybersecurity Fresher | Ethical Hacking | Network Security">
-<meta name="twitter:image" content="image.png">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
@@ -38,28 +24,18 @@ html,body{
   overflow:hidden;
 }
 
-/* PARTICLES */
-#particles{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
-
 /* Pages */
 .page{
   position:fixed;
   inset:0;
   display:flex;
   justify-content:center;
-  align-items:flex-start;
-  overflow:auto;
-  padding-top:60px;
+  align-items:center;
   transition:1s ease;
 }
 #page2,#page3{
   transform:translateX(100%);
   opacity:0;
-  z-index:0;
 }
 
 /* Header */
@@ -112,7 +88,7 @@ html,body{
 .overlay{text-align:center;max-width:1000px;padding:20px}
 h1{font-family:'Orbitron';font-size:3rem}
 h1 span{color:var(--accent)}
-.quote{margin:25px auto;color:var(--sub);max-width:650px;line-height:1.6;}
+.quote{margin:25px auto;color:var(--sub);max-width:650px}
 
 /* Tools */
 .tools{
@@ -208,7 +184,6 @@ h1 span{color:var(--accent)}
   color:var(--sub);
   letter-spacing:1px;
   margin-bottom:30px;
-  line-height:1.5;
 }
 
 /* Form */
@@ -235,7 +210,6 @@ h1 span{color:var(--accent)}
   display:flex;
   justify-content:flex-end;
 }
-.cv-btn{ margin-top:42px; }
 
 /* Image */
 .contact-art{
@@ -243,22 +217,17 @@ h1 span{color:var(--accent)}
   filter:drop-shadow(0 0 25px #00f5ff);
 }
 
-/* Back Button */
+/* Back */
 .back-btn{
   position:absolute;
-  top:20px;
-  left:20px;
+  top:20px;left:20px;
   color:var(--accent);
   cursor:pointer;
-  font-weight:bold;
-  font-size:1.1rem;
 }
 </style>
 </head>
 
 <body>
-
-<canvas id="particles"></canvas>
 
 <div class="header">
   <div class="nav">
@@ -269,7 +238,7 @@ h1 span{color:var(--accent)}
   <div class="brand">HS</div>
 </div>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div class="page" id="page1">
   <div class="overlay">
     <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
@@ -279,19 +248,13 @@ h1 span{color:var(--accent)}
   </div>
 </div>
 
-<!-- ABOUT PAGE -->
+<!-- ABOUT -->
 <div class="page" id="page2">
   <div class="back-btn" onclick="goHome()">← Back</div>
   <div class="overlay">
     <h1>ABOUT</h1>
     <p class="quote" style="max-width:900px">
-Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
-
-Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in AI/ML technologies.
-
-An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
-
-I am a passionate Cybersecurity fresher with strong interest in ethical hacking, network security, vulnerability assessment, and cyber defense mechanisms.
+Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework. Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in AI/ML technologies. An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament. I am a passionate Cybersecurity fresher with strong interest in ethical hacking, network security, vulnerability assessment, and cyber defense mechanisms.
     </p>
 
     <div class="tools">
@@ -307,22 +270,20 @@ I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
     </div>
 
     <div class="contact-icons">
-      <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
-      <a href="https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fas fa-phone"></i></a>
     </div>
 
-    <div class="cv-btn">
-      <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
-        <i class="fas fa-download"></i> Download CV
-      </a>
-    </div>
+    <br>
+    <button class="btn">Download CV</button>
   </div>
 </div>
 
-<!-- CONTACT PAGE -->
+<!-- CONTACT -->
 <div class="page" id="page3">
   <div class="back-btn" onclick="goHome()">← Home</div>
+
   <div class="contact-container">
     <svg class="contact-art" viewBox="0 0 200 200">
       <circle cx="100" cy="70" r="35" fill="none" stroke="#00f5ff" stroke-width="3"/>
@@ -333,112 +294,87 @@ I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
       <p class="contact-text">
         I’m always ready to connect with you — let’s move forward together for more details.
       </p>
-
       <div class="form-box">
         <form
-          id="contactForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
-          method="POST"
-          target="hidden_iframe"
-          onsubmit="submitForm(event)"
-        >
-          <input type="text" name="entry.667343058" placeholder="Your Name" required>
-          <input type="email" name="entry.1910103486" placeholder="Email ID" required>
-          <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
-          <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+  id="contactForm"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitForm(event)"
+>
 
-          <div class="form-actions">
-            <button class="btn" type="submit">Get in Touch</button>
-          </div>
-        </form>
+  <input type="text" name="entry.667343058" placeholder="Your Name" required>
 
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <input type="email" name="entry.1910103486" placeholder="Email ID" required>
 
-        <p id="thankYouMessage" style="
-          display:none;
-          color:var(--accent);
-          text-align:center;
-          margin-top:15px;
-          font-weight:bold;
-          font-family:'Orbitron';
-        ">
-          ✅ Thank you! Your message has been sent.
-        </p>
+  <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+
+  <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Get in Touch</button>
+  </div>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<p id="thankYouMessage" style="
+  display:none;
+  color:var(--accent);
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+  font-family:'Orbitron';
+">
+  ✅ Thank you! Your message has been sent.
+</p>
+
       </div>
     </div>
   </div>
 </div>
 
 <script>
-/* PAGES */
-const p1 = document.getElementById("page1");
-const p2 = document.getElementById("page2");
-const p3 = document.getElementById("page3");
+const p1 = page1;
+const p2 = page2;
+const p3 = page3;
 
 function hideAll(){
-  [p1,p2,p3].forEach(p=>{
-    p.style.opacity=0;
-    p.style.transform="translateX(100%)";
-    p.style.zIndex=0;
+  [p1, p2, p3].forEach(p=>{
+    p.style.opacity = 0;
+    p.style.transform = "translateX(100%)";
   });
 }
 
 function openAbout(){
   hideAll();
-  p2.style.transform="translateX(0)";
-  p2.style.opacity=1;
-  p2.style.zIndex=5;
+  p2.style.transform = "translateX(0)";
+  p2.style.opacity = 1;
 }
 
 function openContact(){
   hideAll();
-  p3.style.transform="translateX(0)";
-  p3.style.opacity=1;
-  p3.style.zIndex=5;
+  p3.style.transform = "translateX(0)";
+  p3.style.opacity = 1;
 }
 
 function goHome(){
   hideAll();
-  p1.style.transform="translateX(0)";
-  p1.style.opacity=1;
-  p1.style.zIndex=5;
+  p1.style.transform = "translateX(0)";
+  p1.style.opacity = 1;
 }
-
-/* FORM THANK-YOU */
-function submitForm(event){
-  event.preventDefault();
-  document.getElementById("contactForm").submit();
-  const msg = document.getElementById("thankYouMessage");
-  msg.style.display = "block";
-  document.getElementById("contactForm").reset();
-  setTimeout(()=>{ msg.style.display="none"; },5000);
-}
-
-/* PARTICLES */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let w,h;
-function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; }
-resize();
-window.addEventListener("resize",resize);
-const particles = Array.from({length:80},()=>({
-  x:Math.random()*w, y:Math.random()*h, r:Math.random()*2+1,
-  vx:(Math.random()-.5)*0.6, vy:(Math.random()-.5)*0.6
-}));
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle="rgba(255,255,255,0.8)";
-  particles.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy;
-    if(p.x<0||p.x>w) p.vx*=-1;
-    if(p.y<0||p.y>h) p.vy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
 </script>
+<script>
+function submitForm(e){
+  e.preventDefault();
+  const form = document.getElementById("contactForm");
+  form.submit();
+  form.style.display="none";
+  document.getElementById("thankYouMessage").style.display="block";
+}
+</script>
+
+
 </body>
 </html>
