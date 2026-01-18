@@ -257,88 +257,81 @@ h1 span{color:var(--accent)}
   /* =======================
    📱 MOBILE VIEW (<=768px)
    ======================= */
+/* =========================
+   📱 REAL MOBILE FIX
+   ========================= */
 @media (max-width: 768px){
 
-  html,body{
+  html, body{
     overflow:auto;
+    position:static;
   }
 
+  /* Allow pages to scroll */
+  .page{
+    position:relative;
+    min-height:100vh;
+    overflow:visible;
+  }
+
+  /* Header scaling */
   .header{
+    position:sticky;
     top:10px;
-    right:10px;
-    transform:scale(0.9);
-  }
-
-  .nav{
-    gap:12px;
-  }
-
-  .overlay{
-    padding:15px;
+    right:auto;
+    justify-content:center;
+    width:100%;
   }
 
   h1{
     font-size:2rem;
+    text-align:center;
   }
 
   h2{
     font-size:1rem;
-    text-align:center;
   }
 
   .quote{
     font-size:.95rem;
+    padding:0 10px;
   }
 
   .btn{
-    padding:12px 26px;
+    padding:12px 24px;
     font-size:.9rem;
   }
 
-  /* ABOUT PAGE */
+  /* ABOUT page scroll fix */
   #page2 .overlay{
-    overflow-y:auto;
-    max-height:100vh;
+    max-height:none;
   }
 
-  .tools{
-    gap:12px;
-  }
-
-  .tool{
-    padding:10px 18px;
-    font-size:.85rem;
-  }
-
-  /* CONTACT PAGE */
+  /* CONTACT page FIX */
   .contact-container{
     grid-template-columns:1fr;
-    gap:30px;
+    text-align:center;
   }
 
   .contact-art{
-    max-width:200px;
+    max-width:180px;
     margin:auto;
-  }
-
-  .form-box{
-    padding:20px;
   }
 
   .form-actions{
     justify-content:center;
   }
 
-  /* BACK BUTTON */
+  /* Back button */
   .back-btn{
-    top:12px;
-    left:12px;
-    font-size:.9rem;
+    position:sticky;
+    top:10px;
+    left:10px;
   }
 
-  /* PARTICLES – lighter for mobile */
+  /* Reduce particles on mobile */
   #particles{
-    opacity:.4;
+    opacity:0.3;
   }
 }
 </style>
