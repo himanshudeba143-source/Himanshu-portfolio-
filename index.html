@@ -38,6 +38,14 @@ html,body{
   font-family:'Segoe UI',sans-serif;
   overflow:hidden;
 }
+
+/* PARTICLES */
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
 .download-wrapper{
   margin-top:60px;
   display:flex;
@@ -231,6 +239,7 @@ h1 span{color:var(--accent)}
   justify-content:flex-end;
 }
 .cv-btn{ margin-top:42px; }
+
 /* Image */
 .contact-art{
   width:100%;
@@ -254,6 +263,8 @@ h1 span{color:var(--accent)}
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <div class="header">
   <div class="nav">
@@ -280,13 +291,11 @@ h1 span{color:var(--accent)}
     <p class="quote" style="max-width:900px">
 Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
 
-Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in Al/ML technologies.
+Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in AI/ML technologies.
 
 An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
 
-I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
-
-network security, vulnerability assessment, and cyber defense mechanisms.
+I am a passionate Cybersecurity fresher with strong interest in ethical hacking, network security, vulnerability assessment, and cyber defense mechanisms.
     </p>
 
     <div class="tools">
@@ -395,15 +404,49 @@ function goHome(){
   p1.style.opacity=1;
 }
 
-/* ✅ ADDED FUNCTION (NO OTHER CHANGES) */
 function submitForm(event){
-  document.getElementById("thankYouMessage").style.display = "block";
+  event.preventDefault();
+  document.getElementById("contactForm").submit();
+  const msg = document.getElementById("thankYouMessage");
+  msg.style.display = "block";
   document.getElementById("contactForm").reset();
-
-  setTimeout(()=>{
-    document.getElementById("thankYouMessage").style.display = "none";
-  },5000);
+  setTimeout(()=>{ msg.style.display="none"; },5000);
 }
+
+/* PARTICLES JS */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let w,h;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+const particles = Array.from({length:80},()=>({
+  x:Math.random()*w,
+  y:Math.random()*h,
+  r:Math.random()*2+1,
+  vx:(Math.random()-.5)*0.6,
+  vy:(Math.random()-.5)*0.6
+}));
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle="rgba(255,255,255,0.8)";
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>w) p.vx*=-1;
+    if(p.y<0||p.y>h) p.vy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
