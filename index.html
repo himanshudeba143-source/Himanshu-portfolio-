@@ -334,6 +334,46 @@ h1 span{color:var(--accent)}
     opacity:0.3;
   }
 }
+  /* =========================
+   🍔 HAMBURGER MENU
+   ========================= */
+
+.hamburger{
+  display:none;
+  font-size:1.8rem;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px){
+
+  .hamburger{
+    display:block;
+  }
+
+  .nav{
+    position:absolute;
+    top:55px;
+    right:15px;
+    background:rgba(0,0,0,.9);
+    border:1px solid var(--accent);
+    border-radius:14px;
+    padding:15px 20px;
+    flex-direction:column;
+    gap:15px;
+    display:none;
+    box-shadow:0 0 25px rgba(0,245,255,.4);
+  }
+
+  .nav.show{
+    display:flex;
+  }
+
+  .divider{
+    display:none;
+  }
+}
 </style>
 
 <meta property="og:title" content="Hello I'm Himanshu Shekhar" />
@@ -348,10 +388,13 @@ h1 span{color:var(--accent)}
 <canvas id="particles"></canvas>
 
 <div class="header">
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
   <div class="nav">
-    <span onclick="openAbout()">About</span>
-    <span onclick="openContact()">Contact</span>
+    <span onclick="openAbout(); closeMenu()">About</span>
+    <span onclick="openContact(); closeMenu()">Contact</span>
   </div>
+
   <div class="divider">|</div>
   <div class="brand">HS</div>
 </div>
@@ -528,6 +571,13 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+  function toggleMenu(){
+  document.querySelector(".nav").classList.toggle("show");
+}
+
+function closeMenu(){
+  document.querySelector(".nav").classList.remove("show");
+}
 </script>
 
 </body>
