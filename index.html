@@ -483,14 +483,16 @@ I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
     </div>
   </div>
 </div>
-
-<script>
-const p1 = page1, p2 = page2, p3 = page3;
+  <script>
+  const p1 = document.getElementById("page1");
+const p2 = document.getElementById("page2");
+const p3 = document.getElementById("page3");
 
 function hideAll(){
   [p1,p2,p3].forEach(p=>{
     p.style.opacity=0;
     p.style.transform="translateX(100%)";
+    p.style.zIndex=0;
   });
 }
 
@@ -498,20 +500,24 @@ function openAbout(){
   hideAll();
   p2.style.transform="translateX(0)";
   p2.style.opacity=1;
+  p2.style.zIndex=5;
 }
 
 function openContact(){
   hideAll();
   p3.style.transform="translateX(0)";
   p3.style.opacity=1;
+  p3.style.zIndex=5;
 }
 
 function goHome(){
   hideAll();
   p1.style.transform="translateX(0)";
   p1.style.opacity=1;
+  p1.style.zIndex=5;
 }
 
+/* Google Form Thank-you */
 function submitForm(event){
   event.preventDefault();
   document.getElementById("contactForm").submit();
@@ -521,7 +527,7 @@ function submitForm(event){
   setTimeout(()=>{ msg.style.display="none"; },5000);
 }
 
-/* HAMBURGER MENU JS */
+/* Hamburger menu JS */
 function toggleMenu(){
   document.querySelector(".nav").classList.toggle("show");
 }
@@ -532,7 +538,6 @@ function closeMenu(){
 /* PARTICLES JS */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
-
 let w,h;
 function resize(){
   w = canvas.width = window.innerWidth;
@@ -564,6 +569,5 @@ function animate(){
 }
 animate();
 </script>
-
 </body>
 </html>
