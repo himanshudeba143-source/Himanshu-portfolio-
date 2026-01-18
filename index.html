@@ -22,8 +22,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-
- <style>
+<style>
 :root{
   --bg:#010814;
   --panel:rgba(0,0,0,.92);
@@ -40,7 +39,7 @@ html,body{
   overflow:hidden;
 }
 .download-wrapper{
-  margin-top:60px;   /* move button downward */
+  margin-top:60px;
   display:flex;
   justify-content:center;
 }
@@ -246,6 +245,7 @@ h1 span{color:var(--accent)}
   cursor:pointer;
 }
 </style>
+
 <meta property="og:title" content="Hello I'm Himanshu Shekhar" />
 <meta property="og:description" content="Cybersecurity Fresher | Portfolio" />
 <meta property="og:image" content="image.png" />
@@ -287,7 +287,6 @@ An active member of the College Council and Achievers Club, recognized for leade
 I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
 
 network security, vulnerability assessment, and cyber defense mechanisms.
-
     </p>
 
     <div class="tools">
@@ -297,22 +296,22 @@ network security, vulnerability assessment, and cyber defense mechanisms.
       <div class="tool"><i class="fas fa-skull-crossbones"></i>Metasploit</div>
       <div class="tool"><i class="fab fa-linux"></i>Kali Linux</div>
     </div>
-     <div class="support-line">
+
+    <div class="support-line">
       <span></span><span></span> Support <span></span><span></span>
     </div>
-     <div class="contact-icons">
-            <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
-            <a href="https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
-     </div>
-     
-        <div class="cv-btn">
-            <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </div>
 
+    <div class="contact-icons">
+      <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
+      <a href="https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
 
+    <div class="cv-btn">
+      <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    </div>
   </div>
 </div>
 
@@ -329,54 +328,46 @@ network security, vulnerability assessment, and cyber defense mechanisms.
       <p class="contact-text">
         I’m always ready to connect with you — let’s move forward together for more details.
       </p>
+
       <div class="form-box">
         <form
-  id="contactForm"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
-  method="POST"
-  target="hidden_iframe"
-  onsubmit="submitForm(event)"
->
+          id="contactForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          onsubmit="submitForm(event)"
+        >
 
-  <input type="text" name="entry.667343058" placeholder="Your Name" required>
+          <input type="text" name="entry.667343058" placeholder="Your Name" required>
+          <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+          <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+          <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
 
-  <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+          <div class="form-actions">
+            <button class="btn" type="submit">Get in Touch</button>
+          </div>
 
-  <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+        </form>
 
-  <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-  <div class="form-actions">
-    <button class="btn" type="submit">Get in Touch</button>
-  </div>
-
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-<p id="thankYouMessage" style="
-  display:none;
-  color:var(--accent);
-  text-align:center;
-  margin-top:15px;
-  font-weight:bold;
-  font-family:'Orbitron';
-">
-  ✅ Thank you! Your message has been sent.
-</p>
+        <p id="thankYouMessage" style="
+          display:none;
+          color:var(--accent);
+          text-align:center;
+          margin-top:15px;
+          font-weight:bold;
+          font-family:'Orbitron';
+        ">
+          ✅ Thank you! Your message has been sent.
+        </p>
 
       </div>
     </div>
   </div>
 </div>
+
 <script>
-const p1 = page1, p2 = page2, p3 = page3;
-function hideAll(){[p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)";});}
-function openAbout(){hideAll();p2.style.transform="translateX(0)";p2.style.opacity=1;}
-function openContact(){hideAll();p3.style.transform="translateX(0)";p3.style.opacity=1;}
-function goHome(){hideAll();p1.style.transform="translateX(0)";p1.style.opacity=1;}
-</script>
- <script>
 const p1 = page1, p2 = page2, p3 = page3;
 
 function hideAll(){
@@ -404,21 +395,16 @@ function goHome(){
   p1.style.opacity=1;
 }
 
-/* 🔥 ADD THIS FUNCTION */
-function submitForm(event) {
-  // Allow Google Form submission
+/* ✅ ADDED FUNCTION (NO OTHER CHANGES) */
+function submitForm(event){
   document.getElementById("thankYouMessage").style.display = "block";
-
-  // Clear form after submit
   document.getElementById("contactForm").reset();
 
-  // Prevent page reload
-  setTimeout(() => {
+  setTimeout(()=>{
     document.getElementById("thankYouMessage").style.display = "none";
-  }, 5000);
+  },5000);
 }
- </script>
- 
+</script>
 
 </body>
 </html>
