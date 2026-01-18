@@ -228,7 +228,16 @@ h1 span{color:var(--accent)}
   <div class="overlay">
     <h1>ABOUT</h1>
     <p class="quote" style="max-width:900px">
-Motivated B.Tech student (2022–2026) with strong interest in Cybersecurity, Ethical Hacking, Network Security, and Cyber Defense mechanisms.
+Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
+
+Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in Al/ML technologies.
+
+An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
+
+I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
+
+network security, vulnerability assessment, and cyber defense mechanisms.
+
     </p>
 
     <div class="tools">
@@ -255,17 +264,57 @@ Motivated B.Tech student (2022–2026) with strong interest in Cybersecurity, Et
 
 <div class="page" id="page3">
   <div class="back-btn" onclick="goHome()">← Home</div>
+
   <div class="contact-container">
     <svg class="contact-art" viewBox="0 0 200 200">
       <circle cx="100" cy="70" r="35" fill="none" stroke="#00f5ff" stroke-width="3"/>
       <rect x="40" y="120" width="120" height="50" rx="20" fill="none" stroke="#00f5ff" stroke-width="3"/>
     </svg>
+
     <div>
-      <p class="contact-text">Let’s connect and move forward together.</p>
+      <p class="contact-text">
+        I’m always ready to connect with you — let’s move forward together for more details.
+      </p>
+      <div class="form-box">
+        <form
+  id="contactForm"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitForm(event)"
+>
+
+  <input type="text" name="entry.667343058" placeholder="Your Name" required>
+
+  <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+
+  <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+
+  <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Get in Touch</button>
+  </div>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<p id="thankYouMessage" style="
+  display:none;
+  color:var(--accent);
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+  font-family:'Orbitron';
+">
+  ✅ Thank you! Your message has been sent.
+</p>
+
+      </div>
     </div>
   </div>
 </div>
-
 <script>
 const p1 = page1, p2 = page2, p3 = page3;
 function hideAll(){[p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)";});}
