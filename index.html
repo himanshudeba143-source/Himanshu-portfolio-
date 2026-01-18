@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Himanshu Shekhar | Cybersecurity Portfolio</title>
 
 <!-- ===== OPEN GRAPH META TAGS ===== -->
@@ -52,13 +51,15 @@ html,body{
   inset:0;
   display:flex;
   justify-content:center;
-  align-items:center;
-  transition:1s ease;
+  align-items:flex-start;
   overflow:auto;
+  padding-top:60px;
+  transition:1s ease;
 }
 #page2,#page3{
   transform:translateX(100%);
   opacity:0;
+  z-index:0;
 }
 
 /* Header */
@@ -91,14 +92,6 @@ html,body{
   letter-spacing:2px;
 }
 
-/* Hamburger Menu */
-.hamburger{
-  display:none;
-  font-size:1.8rem;
-  color:var(--accent);
-  cursor:pointer;
-}
-
 /* Buttons */
 .btn{
   padding:14px 36px;
@@ -119,7 +112,7 @@ html,body{
 .overlay{text-align:center;max-width:1000px;padding:20px}
 h1{font-family:'Orbitron';font-size:3rem}
 h1 span{color:var(--accent)}
-.quote{margin:25px auto;color:var(--sub);max-width:650px}
+.quote{margin:25px auto;color:var(--sub);max-width:650px;line-height:1.6;}
 
 /* Tools */
 .tools{
@@ -215,6 +208,7 @@ h1 span{color:var(--accent)}
   color:var(--sub);
   letter-spacing:1px;
   margin-bottom:30px;
+  line-height:1.5;
 }
 
 /* Form */
@@ -249,97 +243,30 @@ h1 span{color:var(--accent)}
   filter:drop-shadow(0 0 25px #00f5ff);
 }
 
-/* Back */
+/* Back Button */
 .back-btn{
   position:absolute;
-  top:20px;left:20px;
+  top:20px;
+  left:20px;
   color:var(--accent);
   cursor:pointer;
-}
-
-/* =========================
-   📱 MOBILE FIXES
-========================= */
-@media (max-width:768px){
-  html,body{
-    overflow:auto;
-    height:auto;
-    position:static;
-  }
-  .page{
-    position:relative;
-    min-height:100vh;
-    overflow:visible;
-    padding-top:60px;
-  }
-
-  /* Header adjustments */
-  .header{
-    position:sticky;
-    top:0;
-    justify-content:space-between;
-    padding:10px 15px;
-    width:100%;
-    z-index:50;
-  }
-  .divider{display:none;}
-
-  /* Hamburger Menu */
-  .hamburger{
-    display:block;
-  }
-  .nav{
-    position:absolute;
-    top:50px;
-    right:10px;
-    background:rgba(0,0,0,0.95);
-    border:1px solid var(--accent);
-    border-radius:12px;
-    padding:15px 20px;
-    flex-direction:column;
-    gap:15px;
-    display:none;
-    z-index:100;
-  }
-  .nav.show{
-    display:flex;
-  }
-
-  /* Home text scaling */
-  h1{font-size:2rem;text-align:center;}
-  h2{font-size:1rem;}
-  .quote{font-size:.95rem;padding:0 10px;}
-  .btn{padding:12px 24px;font-size:.9rem;}
-
-  /* About/Contact scroll fixes */
-  #page2 .overlay,#page3 .contact-container{max-height:none;}
-  .contact-container{grid-template-columns:1fr;text-align:center;}
-  .contact-art{max-width:180px;margin:auto;}
-  .form-actions{justify-content:center;}
-
-  /* Back button on top */
-  .back-btn{
-    position:sticky;
-    top:10px;
-    left:10px;
-  }
-
-  /* Reduce particle opacity */
-  #particles{opacity:0.3;}
+  font-weight:bold;
+  font-size:1.1rem;
 }
 </style>
+</head>
 
 <body>
+
 <canvas id="particles"></canvas>
 
-<!-- Header with Hamburger -->
 <div class="header">
-  <div class="brand">HS</div>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="nav">
-    <span onclick="openAbout(); closeMenu()">About</span>
-    <span onclick="openContact(); closeMenu()">Contact</span>
+    <span onclick="openAbout()">About</span>
+    <span onclick="openContact()">Contact</span>
   </div>
+  <div class="divider">|</div>
+  <div class="brand">HS</div>
 </div>
 
 <!-- HOME PAGE -->
@@ -485,14 +412,6 @@ function submitForm(event){
   msg.style.display = "block";
   document.getElementById("contactForm").reset();
   setTimeout(()=>{ msg.style.display="none"; },5000);
-}
-
-/* HAMBURGER MENU */
-function toggleMenu(){
-  document.querySelector(".nav").classList.toggle("show");
-}
-function closeMenu(){
-  document.querySelector(".nav").classList.remove("show");
 }
 
 /* PARTICLES */
