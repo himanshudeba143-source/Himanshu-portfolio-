@@ -1,4 +1,274 @@
-/* ===== MOBILE FIXES WITH BACK BUTTON, CV BUTTON & CONTACT ADJUSTMENT ===== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Himanshu Shekhar | Cybersecurity Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#010814;
+  --panel:rgba(0,0,0,.92);
+  --text:#ffffff;
+  --sub:#cfd9ff;
+  --accent:#00f5ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  width:100%;height:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+}
+
+/* Canvas */
+#particle-canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+/* Pages */
+.page{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:1s ease;
+}
+#page2,#page3{
+  transform:translateX(100%);
+  opacity:0;
+}
+
+/* Header */
+.header{
+  position:fixed;
+  top:14px;
+  right:18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  z-index:10;
+}
+.nav{
+  display:flex;
+  gap:18px;
+}
+.nav span{
+  cursor:pointer;
+  color:var(--accent);
+  transition:.3s;
+}
+.nav span:hover{
+  transform:translateY(-3px);
+  text-shadow:0 0 12px var(--accent);
+}
+.brand{
+  font-family:'Orbitron';
+  color:var(--accent);
+  letter-spacing:2px;
+}
+
+/* Buttons */
+.btn{
+  padding:14px 36px;
+  border-radius:30px;
+  border:2px solid var(--accent);
+  background:none;
+  color:var(--accent);
+  cursor:pointer;
+  transition:.35s;
+}
+.btn:hover{
+  background:var(--accent);
+  color:#000;
+  box-shadow:0 0 25px var(--accent);
+}
+
+/* Home */
+.overlay{text-align:center;max-width:1000px;padding:20px}
+h1{font-family:'Orbitron';font-size:3rem}
+h1 span{color:var(--accent)}
+.quote{margin:25px auto;color:var(--sub);max-width:650px}
+
+/* Tools */
+.tools{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:22px;
+  margin:40px 0;
+}
+.tool{
+  padding:14px 26px;
+  border-radius:18px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  display:flex;
+  gap:12px;
+  align-items:center;
+  transition:.35s;
+}
+.tool:hover{
+  transform:translateY(-6px) scale(1.05);
+  background:rgba(0,245,255,.08);
+  box-shadow:0 0 20px var(--accent);
+}
+
+/* Support Line */
+.support-line{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+  color:var(--sub);
+}
+.support-line span{
+  width:28px;height:2px;background:var(--accent);
+}
+
+  .cv-btn{
+  margin-top:25px;   /* move button downward */
+  display:flex;
+  justify-content:center;
+}
+
+
+/* Social Icons Neon */
+.contact-icons{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  margin-top:15px;
+}
+.contact-icons a{
+  color:var(--accent);
+  font-size:1.7rem;
+  transition:.35s;
+}
+.contact-icons a:hover{
+  transform:scale(1.25);
+  text-shadow:
+    0 0 10px var(--accent),
+    0 0 20px var(--accent),
+    0 0 35px var(--accent);
+}
+
+/* Contact Page Background */
+#page3{
+  background:
+  repeating-linear-gradient(
+    0deg,
+    rgba(0,245,255,.08) 0px,
+    rgba(0,245,255,.08) 1px,
+    transparent 1px,
+    transparent 60px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    rgba(0,245,255,.08) 0px,
+    rgba(0,245,255,.08) 1px,
+    transparent 1px,
+    transparent 120px
+  ),
+  var(--bg);
+}
+
+/* Contact Layout */
+.contact-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  max-width:1100px;
+  padding:30px;
+}
+
+/* Center Text */
+.contact-text{
+  font-family:'Orbitron';
+  text-align:center;
+  color:var(--sub);
+  letter-spacing:1px;
+  margin-bottom:30px;
+}
+
+/* Form */
+.form-box{
+  background:rgba(0,0,0,.65);
+  padding:30px;
+  border-radius:22px;
+  border:1px solid var(--accent);
+  box-shadow:0 0 30px rgba(0,245,255,.2);
+}
+.form-box input,
+.form-box textarea{
+  width:100%;
+  background:transparent;
+  border:1px solid rgba(0,245,255,.5);
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:15px;
+  outline:none;
+}
+.form-box textarea{height:120px;resize:none}
+.form-actions{
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* Image */
+.contact-art{
+  width:100%;
+  filter:drop-shadow(0 0 25px #00f5ff);
+}
+
+/* Back */
+.back-btn{
+  position:absolute;
+  top:20px;left:20px;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+/* THANK YOU */
+.thank-you{
+  position:fixed;
+  inset:0;
+  background:rgba(1,8,20,.95);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 1s;
+  z-index:999;
+}
+.thank-you.show{opacity:1}
+.thank-you h2{
+  font-family:'Orbitron';
+  color:var(--accent);
+}
+  .about,
+.contact,
+.home {
+  min-height: 100vh;
+  height: auto;
+}
+
+
+/* ===== COMPLETE MOBILE FIX ===== */
+/* ===== COMPLETE MOBILE FIX WITH HEADER & SCROLL ===== */
 @media(max-width:900px){
 
   /* Allow vertical scrolling */
@@ -13,7 +283,7 @@
     min-width:100vw;
     overflow-x:hidden;
     overflow-y:auto; /* allow vertical scroll */
-    padding-top:70px; /* space for fixed header */
+    padding-top:150px; /* space for fixed header */
     box-sizing:border-box;
   }
 
@@ -46,7 +316,7 @@
   /* Headings and quotes */
   h1{
     font-size:1.9rem;
-    margin-top:20px; /* push below header */
+    margin-top:30px; /* push below header */
   }
   h2{
     font-size:1.3rem;
@@ -93,43 +363,27 @@
     background:var(--accent);
   }
 
-  /* CV button - move slightly up */
-  .cv-btn{
-    margin-top:15px; /* less margin, moves it up */
-    display:flex;
-    justify-content:center;
-  }
+  /* CV button */
   .cv-btn a{
     display:block;
-    margin:0 auto 25px auto; /* moves it closer to content above */
+    margin:25px auto 40px auto;
     width:100%;
     max-width:260px;
   }
 
-  /* Back button adjustments */
-  .back-btn{
-    top:10px; /* slightly lower than header */
-    left:10px;
-    font-size:0.9rem;
+  /* Contact page adjustments */
+  .contact-container{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:20px;
   }
-
-  /* Contact page adjustments - move content up */
-  #page3 .contact-container{
-    padding-top:10px; /* move content closer to top */
-    gap:15px;
-  }
-  #page3 .contact-art{
-    margin-top:0;
-  }
-  #page3 .form-box{
-    margin-top:0;
-  }
-
   .contact-text{
     font-size:0.9rem;
-    margin-bottom:15px;
+    margin-bottom:20px;
   }
-
+  .form-box{
+    padding:18px;
+  }
   .form-box input,
   .form-box textarea{
     padding:10px;
@@ -139,11 +393,22 @@
     margin:8px auto;
     display:block;
   }
-
   .form-actions button{
     width:100%;
     max-width:260px;
     margin:auto;
+  }
+  .contact-art{
+    max-width:80%;
+    margin:auto;
+    display:block;
+  }
+
+  /* Back button */
+  .back-btn{
+    top:15px;
+    left:10px;
+    font-size:0.85rem;
   }
 
   /* About, Contact, Home page height adjustments */
@@ -155,3 +420,187 @@
     padding-bottom:40px;
   }
 }
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particle-canvas"></canvas>
+
+<div class="header">
+  <div class="nav">
+    <span onclick="openAbout()">About</span>
+    <span onclick="openContact()">Contact</span>
+  </div>
+   <div class="brand">|</div>
+  <div class="brand">HS</div>
+</div>
+
+<!-- HOME -->
+<div class="page" id="page1">
+    <div class="overlay">
+        <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
+        <h2>A Amorous Cybersecurity Fresher</h2>
+        <p class="quote">“All power is within you: you can do anything and everything”</p>
+        <button class="btn" onclick="openPortfolio()">Explore my portfolio</button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page2">
+    <div class="back-btn" onclick="goHome()">
+        <i class="fas fa-arrow-left"></i> Back
+    </div>
+
+    <div class="overlay">
+        <h1 class="about-title">ABOUT</h1>
+      <div class="para-container">
+  <p>
+Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
+
+Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in Al/ML technologies.
+
+An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
+
+I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
+
+network security, vulnerability assessment, and cyber defense mechanisms.
+  </p>
+      </div>
+        <p class="about-text"></p>
+
+        <div class="tools">
+            <div class="tool"><i class="fas fa-network-wired"></i> Nmap</div>
+            <div class="tool"><i class="fas fa-wave-square"></i> Wireshark</div>
+            <div class="tool"><i class="fas fa-bug"></i> Burp Suite</div>
+            <div class="tool"><i class="fas fa-skull-crossbones"></i> Metasploit</div>
+            <div class="tool"><i class="fab fa-linux"></i> Kali Linux</div>
+        </div>
+
+        <div class="support-line">
+      <span></span><span></span> Support <span></span><span></span>
+       </div>
+
+        <div class="contact-icons">
+            <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
+            <a href="https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="cv-btn">
+            <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page3">
+  <div class="back-btn" onclick="goHome()">← Home</div>
+
+  <div class="contact-container">
+    <svg class="contact-art" viewBox="0 0 200 200">
+      <circle cx="100" cy="70" r="35" fill="none" stroke="#00f5ff" stroke-width="3"/>
+      <rect x="40" y="120" width="120" height="50" rx="20" fill="none" stroke="#00f5ff" stroke-width="3"/>
+    </svg>
+
+    <div>
+      <p class="contact-text">
+        I’m always ready to connect with you — let’s move forward together for more details.
+      </p>
+      <div class="form-box">
+        <form
+  id="contactForm"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitForm(event)"
+>
+
+  <input type="text" name="entry.667343058" placeholder="Your Name" required>
+
+  <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+
+  <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+
+  <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Get in Touch</button>
+  </div>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<p id="thankYouMessage" style="
+  display:none;
+  color:var(--accent);
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+  font-family:'Orbitron';
+">
+  ✅ Thank you! Your message has been sent.
+</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="thank-you" id="thankYou">
+  <h2>Thank you 💙</h2>
+</div>
+
+<script>
+const p1=page1,p2=page2,p3=page3;
+function hideAll(){
+  [p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"});
+}
+function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)";}
+function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)";}
+function goHome(){hideAll();p1.style.opacity=1;p1.style.transform="translateX(0)";}
+function openPortfolio(){openAbout();}
+function submitForm(e){
+  e.preventDefault();
+  const form=document.getElementById("contactForm");
+  form.submit();
+  form.style.display="none";
+  document.getElementById("thankYouMessage").style.display="block";
+}
+</script>
+
+<script>
+/* WHITE PARTICLES */
+const c=document.getElementById("particle-canvas"),x=c.getContext("2d");
+let w,h,p=[];
+function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+window.onresize=resize;resize();
+for(let i=0;i<120;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,v:Math.random()+.5});
+function anim(){
+x.clearRect(0,0,w,h);
+p.forEach(a=>{
+a.y+=a.v;
+if(a.y>h)a.y=0;
+x.fillStyle="white";
+x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
+});
+requestAnimationFrame(anim);
+}
+anim();
+</script>
+
+</body>
+</html>
+
+
+
+in the modile ,edioa queryy
+
+where is the back button and the home button 
+also in the about page
+move the download button a little bit up
+and oin the contact page move tthe entire contente a little bit up
