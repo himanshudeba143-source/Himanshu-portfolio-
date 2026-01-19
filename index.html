@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Himanshu Shekhar | Cybersecurity Portfolio</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -217,35 +219,62 @@ h1 span{color:var(--accent)}
 /* ================================================= */
 /* ================= MOBILE FIX ==================== */
 /* ================================================= */
-@media (max-width:768px){
+/* ========================= */
+/* ✅ MOBILE RESPONSIVE FIX */
+/* ========================= */
+@media (max-width: 768px){
 
-  html,body{
+  html, body{
     height:auto;
-    overflow-y:auto;   /* ✅ enable scrolling */
+    overflow-y:auto;
   }
 
+  /* Disable fixed slide pages ONLY on mobile */
   .page{
-    position:relative; /* ✅ critical fix */
-    min-height:100vh;
+    position:relative;
     transform:none !important;
     opacity:1 !important;
+    min-height:100vh;
     align-items:flex-start;
     padding-top:120px;
   }
 
-  h1{font-size:2rem}
+  /* Header spacing */
+  .header{
+    top:10px;
+    right:10px;
+  }
 
+  /* Text scaling */
+  h1{font-size:2.1rem}
+  h2{font-size:1.2rem}
+
+  /* Contact layout stack */
   .contact-container{
     grid-template-columns:1fr;
     gap:30px;
   }
 
+  /* SVG scale */
+  .contact-art{
+    max-width:260px;
+    margin:0 auto;
+  }
+
+  /* Back button visibility */
   .back-btn{
     position:fixed;
     top:80px;
-    left:15px;
+    left:20px;
+    z-index:20;
+  }
+
+  /* Buttons */
+  .btn{
+    padding:12px 26px;
   }
 }
+
 </style>
 </head>
 
