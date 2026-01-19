@@ -136,12 +136,11 @@ h1 span{color:var(--accent)}
   width:28px;height:2px;background:var(--accent);
 }
 
-  .cv-btn{
+.cv-btn{
   margin-top:25px;   /* move button downward */
   display:flex;
   justify-content:center;
 }
-
 
 /* Social Icons Neon */
 .contact-icons{
@@ -259,36 +258,30 @@ h1 span{color:var(--accent)}
   font-family:'Orbitron';
   color:var(--accent);
 }
-  .about,
+.about,
 .contact,
 .home {
   min-height: 100vh;
   height: auto;
 }
 
-
 /* ===== COMPLETE MOBILE FIX ===== */
-/* ===== COMPLETE MOBILE FIX WITH HEADER & SCROLL ===== */
-/* ===== MOBILE FIXES WITH BACK BUTTON, CV BUTTON & CONTACT ADJUSTMENT ===== */
 @media(max-width:900px){
 
-  /* Allow vertical scrolling */
   body{
     overflow:auto;
   }
 
-  /* Pages adjustments to prevent horizontal scroll */
   .page{
     left:0;
     right:0;
     min-width:100vw;
     overflow-x:hidden;
-    overflow-y:auto; /* allow vertical scroll */
-    padding-top:70px; /* space for fixed header */
+    overflow-y:auto;
+    padding-top:70px;
     box-sizing:border-box;
   }
 
-  /* Header */
   .header{
     position:fixed;
     top:0;
@@ -300,13 +293,12 @@ h1 span{color:var(--accent)}
     gap:10px;
     padding:14px 18px;
     background:var(--bg);
-    z-index:999; /* ensure always on top */
+    z-index:999;
   }
   .nav span{
     font-size:0.9rem;
   }
 
-  /* Overlay adjustments */
   .overlay{
     padding:20px 15px;
     text-align:center;
@@ -314,10 +306,9 @@ h1 span{color:var(--accent)}
     box-sizing:border-box;
   }
 
-  /* Headings and quotes */
   h1{
     font-size:1.9rem;
-    margin-top:20px; /* push below header */
+    margin-top:20px;
   }
   h2{
     font-size:1.3rem;
@@ -329,7 +320,6 @@ h1 span{color:var(--accent)}
     margin:15px auto;
   }
 
-  /* About page text */
   .para-container p,
   .about-text{
     font-size:0.9rem;
@@ -337,7 +327,6 @@ h1 span{color:var(--accent)}
     margin-top:15px;
   }
 
-  /* Tools section */
   .tools{
     flex-wrap:wrap;
     justify-content:center;
@@ -349,7 +338,6 @@ h1 span{color:var(--accent)}
     font-size:0.85rem;
   }
 
-  /* Support line */
   .support-line{
     display:flex;
     justify-content:center;
@@ -364,28 +352,24 @@ h1 span{color:var(--accent)}
     background:var(--accent);
   }
 
-  /* CV button - move slightly up */
   .cv-btn{
-    margin-top:15px; /* less margin, moves it up */
+    margin-top:15px;
     display:flex;
     justify-content:center;
   }
   .cv-btn a{
     display:block;
-    margin:0 auto 25px auto; /* moves it closer to content above */
+    margin:0 auto 25px auto;
     width:100%;
     max-width:260px;
   }
 
-  /* Back button adjustments */
   .back-btn{
-    top:10px; /* slightly lower than header */
+    top:10px;
     left:10px;
     font-size:0.9rem;
   }
 
-  /* Contact page adjustments - move content up */
-   /* Contact page adjustments */
   .contact-container{
     grid-template-columns:1fr;
     gap:20px;
@@ -413,7 +397,6 @@ h1 span{color:var(--accent)}
     margin-bottom:20px;
   }
 
-  /* About page adjustments */
   .about-text{
     font-size:0.9rem;
   }
@@ -426,46 +409,39 @@ h1 span{color:var(--accent)}
     margin-top:15px;
   }
 
-  /* Back button adjustments */
   .back-btn{
     top:15px;
     left:10px;
     font-size:0.85rem;
   }
-  /* Back & Home button visible below header */
-.back-btn{
-  position:fixed;
-  top:60px;           /* below the fixed header */
-  left:12px;
-  font-size:0.85rem;
-  z-index:1000;
-}
 
-/* Make CONTACT page content slightly smaller */
-#page3 .contact-text{
-  font-size:0.85rem;
-  line-height:1.4;
-}
+  .back-btn{
+    position:fixed;
+    top:60px;
+    left:12px;
+    font-size:0.85rem;
+    z-index:1000;
+  }
 
-#page3 .form-box{
-  padding:14px;
-}
+  #page3 .contact-text{
+    font-size:0.85rem;
+    line-height:1.4;
+  }
 
-#page3 .form-box input,
-#page3 .form-box textarea{
-  padding:8px;
-  font-size:0.85rem;
-}
+  #page3 .form-box{
+    padding:14px;
+  }
 
-#page3 .contact-art{
-  width:80%;
-  margin:0 auto;
-}
+  #page3 .form-box input,
+  #page3 .form-box textarea{
+    padding:8px;
+    font-size:0.85rem;
+  }
 
-}
-
-
-getting this type oof mobile view a little bit overlap what will i chnage just ay excatly so that it will work correct;ly
+  #page3 .contact-art{
+    width:80%;
+    margin:0 auto;
+  }
 
   /* About, Contact, Home page height adjustments */
   .about,
@@ -476,27 +452,21 @@ getting this type oof mobile view a little bit overlap what will i chnage just a
     padding-bottom:40px;
   }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- Canvas for particles (background) -->
 <canvas id="particle-canvas"></canvas>
 
-<!-- Header -->
 <div class="header">
   <div class="nav">
     <span onclick="openAbout()">About</span>
     <span onclick="openContact()">Contact</span>
   </div>
-  <div class="brand">|</div>
+   <div class="brand">|</div>
   <div class="brand">HS</div>
 </div>
-
-<!-- HOME, ABOUT, CONTACT pages... -->
-
 
 <!-- HOME -->
 <div class="page" id="page1">
@@ -619,7 +589,7 @@ network security, vulnerability assessment, and cyber defense mechanisms.
 <script>
 const p1=page1,p2=page2,p3=page3;
 function hideAll(){
-  [p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"});
+  [p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"}); 
 }
 function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)";}
 function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)";}
@@ -634,84 +604,81 @@ function submitForm(e){
 }
 </script>
 
-<script>
+<!-- UPGRADING PARTICLE ANIMATION -->
 <script>
 const canvas = document.getElementById("particle-canvas");
 const ctx = canvas.getContext("2d");
 
 let w, h;
 let particles = [];
-const PARTICLE_COUNT = 120;
-const MAX_DISTANCE = 100; // max distance to draw connecting lines
+let PARTICLE_COUNT = window.innerWidth < 900 ? 60 : 120; // fewer particles on mobile
+const MAX_DISTANCE = 100;
 
-// Resize canvas
 function resizeCanvas() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
 }
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  PARTICLE_COUNT = window.innerWidth < 900 ? 60 : 120;
+});
 resizeCanvas();
 
-// Create particles
+// create particles
 for (let i = 0; i < PARTICLE_COUNT; i++) {
   particles.push({
     x: Math.random() * w,
     y: Math.random() * h,
-    r: Math.random() * 2 + 1, // radius
-    vx: (Math.random() - 0.5) * 0.8, // horizontal speed
-    vy: (Math.random() - 0.5) * 0.8  // vertical speed
+        r: Math.random() * 2 + 1,
+    vx: (Math.random() - 0.5) * 0.8,
+    vy: (Math.random() - 0.5) * 0.8
   });
 }
 
-// Animate particles
-function animate() {
+function animateParticles() {
   ctx.clearRect(0, 0, w, h);
 
-  // Draw lines between nearby particles
+  /* draw connecting lines */
   for (let i = 0; i < particles.length; i++) {
-    const p1 = particles[i];
     for (let j = i + 1; j < particles.length; j++) {
-      const p2 = particles[j];
-      const dx = p1.x - p2.x;
-      const dy = p1.y - p2.y;
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
+
       if (dist < MAX_DISTANCE) {
-        ctx.strokeStyle = `rgba(255,255,255,${0.15 - dist/MAX_DISTANCE*0.15})`;
+        ctx.strokeStyle = `rgba(255,255,255,${0.15 - dist / MAX_DISTANCE * 0.15})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
         ctx.stroke();
       }
     }
   }
 
-  // Move and draw particles
+  /* draw particles */
   particles.forEach(p => {
     p.x += p.vx;
     p.y += p.vy;
 
-    // Wrap around edges
     if (p.x < 0) p.x = w;
     if (p.x > w) p.x = 0;
     if (p.y < 0) p.y = h;
     if (p.y > h) p.y = 0;
 
-    // Glow effect
     ctx.fillStyle = "white";
-    ctx.shadowColor = "#00f5ff"; // neon blue glow
+    ctx.shadowColor = "#00f5ff";
     ctx.shadowBlur = 8;
+
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
   });
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateParticles);
 }
 
-animate();
-</script>
-
+animateParticles();
 </script>
 
 </body>
