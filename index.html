@@ -372,6 +372,118 @@ h1 span{color:var(--accent)}
   }
 }
 
+  /* ===== COMPLETE MOBILE FIX ===== */
+@media(max-width:900px){
+
+  /* Allow vertical scrolling */
+  body{
+    overflow:auto;
+  }
+
+  /* Pages container adjustment to prevent horizontal scroll */
+  .page{
+    left:0;
+    right:0;
+    min-width:100vw;
+    overflow-x:hidden;
+  }
+
+  /* Overlay and content adjustments */
+  .overlay, .tools, .contact-container, .cv-btn a, .form-box, .contact-art{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .overlay{
+    padding:15px 10px;
+    text-align:center;
+  }
+
+  h1{
+    font-size:1.9rem;
+  }
+  h2{
+    font-size:1.3rem;
+    margin-top:10px;
+  }
+
+  .quote{
+    font-size:0.95rem;
+    max-width:90%;
+    margin:15px auto;
+  }
+
+  /* Tools section */
+  .tools{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+  .tool{
+    padding:10px 16px;
+    font-size:0.85rem;
+  }
+
+  /* Contact page adjustments */
+  .contact-container{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:20px;
+  }
+
+  .form-box{
+    padding:18px;
+  }
+
+  .form-box input,
+  .form-box textarea{
+    padding:10px;
+    font-size:0.9rem;
+    width:100%;
+    max-width:260px;
+    margin:8px auto;
+    display:block;
+  }
+
+  .form-actions button{
+    width:100%;
+    max-width:260px;
+    margin:auto;
+  }
+
+  .contact-text{
+    font-size:0.9rem;
+    margin-bottom:20px;
+  }
+
+  .contact-art{
+    max-width:80%;
+    margin:auto;
+    display:block;
+  }
+
+  /* About page adjustments */
+  .about-text{
+    font-size:0.9rem;
+  }
+
+  .cv-btn a{
+    display:block;
+    margin:15px auto;
+    width:100%;
+    max-width:260px;
+  }
+
+  /* Back button adjustments */
+  .back-btn{
+    top:15px;
+    left:10px;
+    font-size:0.85rem;
+  }
+}
+
+
 
 </style>
 </head>
