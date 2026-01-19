@@ -16,22 +16,20 @@
   --accent:#00f5ff;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+
 html,body{
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   background:var(--bg);
   color:var(--text);
   font-family:'Segoe UI',sans-serif;
   overflow:hidden;
-  position:relative;
 }
 
 /* Particle Canvas */
 #particle-canvas{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   pointer-events:none;
   z-index:0;
 }
@@ -68,17 +66,11 @@ html,body{
 .nav span{
   cursor:pointer;
   color:var(--accent);
-  transition:.3s;
 }
-.nav span:hover{
-  transform:translateY(-3px);
-  text-shadow:0 0 12px var(--accent);
-}
-.divider{color:var(--accent);opacity:.7}
+.divider{color:var(--accent)}
 .brand{
   font-family:'Orbitron';
   color:var(--accent);
-  letter-spacing:2px;
 }
 
 /* Buttons */
@@ -89,7 +81,6 @@ html,body{
   background:none;
   color:var(--accent);
   cursor:pointer;
-  transition:.35s;
 }
 .btn:hover{
   background:var(--accent);
@@ -98,10 +89,21 @@ html,body{
 }
 
 /* Home */
-.overlay{text-align:center;max-width:1000px;padding:20px}
-h1{font-family:'Orbitron';font-size:3rem}
+.overlay{
+  text-align:center;
+  max-width:1000px;
+  padding:20px;
+}
+h1{
+  font-family:'Orbitron';
+  font-size:3rem;
+}
 h1 span{color:var(--accent)}
-.quote{margin:25px auto;color:var(--sub);max-width:650px}
+.quote{
+  margin:25px auto;
+  color:var(--sub);
+  max-width:650px;
+}
 
 /* Tools */
 .tools{
@@ -119,12 +121,6 @@ h1 span{color:var(--accent)}
   display:flex;
   gap:12px;
   align-items:center;
-  transition:.35s;
-}
-.tool:hover{
-  transform:translateY(-6px) scale(1.05);
-  background:rgba(0,245,255,.08);
-  box-shadow:0 0 20px var(--accent);
 }
 
 /* Support */
@@ -140,7 +136,7 @@ h1 span{color:var(--accent)}
   width:28px;height:2px;background:var(--accent);
 }
 
-/* Social Icons Neon */
+/* Social Icons */
 .contact-icons{
   display:flex;
   gap:30px;
@@ -150,33 +146,13 @@ h1 span{color:var(--accent)}
 .contact-icons a{
   color:var(--accent);
   font-size:1.7rem;
-  transition:.35s;
-}
-.contact-icons a:hover{
-  transform:scale(1.25);
-  text-shadow:
-    0 0 10px var(--accent),
-    0 0 20px var(--accent),
-    0 0 35px var(--accent);
 }
 
-/* Contact Page Background */
+/* Contact Page BG */
 #page3{
   background:
-  repeating-linear-gradient(
-    0deg,
-    rgba(0,245,255,.08) 0px,
-    rgba(0,245,255,.08) 1px,
-    transparent 1px,
-    transparent 60px
-  ),
-  repeating-linear-gradient(
-    90deg,
-    rgba(0,245,255,.08) 0px,
-    rgba(0,245,255,.08) 1px,
-    transparent 1px,
-    transparent 120px
-  ),
+  repeating-linear-gradient(0deg,rgba(0,245,255,.08) 0px,rgba(0,245,255,.08) 1px,transparent 1px,transparent 60px),
+  repeating-linear-gradient(90deg,rgba(0,245,255,.08) 0px,rgba(0,245,255,.08) 1px,transparent 1px,transparent 120px),
   var(--bg);
 }
 
@@ -190,12 +166,11 @@ h1 span{color:var(--accent)}
   padding:30px;
 }
 
-/* Center Text */
+/* Contact Text */
 .contact-text{
   font-family:'Orbitron';
   text-align:center;
   color:var(--sub);
-  letter-spacing:1px;
   margin-bottom:30px;
 }
 
@@ -205,7 +180,6 @@ h1 span{color:var(--accent)}
   padding:30px;
   border-radius:22px;
   border:1px solid var(--accent);
-  box-shadow:0 0 30px rgba(0,245,255,.2);
 }
 .form-box input,
 .form-box textarea{
@@ -216,15 +190,20 @@ h1 span{color:var(--accent)}
   padding:12px;
   border-radius:12px;
   margin-bottom:15px;
-  outline:none;
 }
 .form-box textarea{height:120px;resize:none}
-.form-actions{
-  display:flex;
-  justify-content:flex-end;
+.form-actions{display:flex;justify-content:flex-end}
+
+/* Success Message */
+#success-msg{
+  display:none;
+  color:#00f5ff;
+  text-align:center;
+  margin-top:15px;
+  font-family:Orbitron;
 }
 
-/* Image */
+/* Contact Art */
 .contact-art{
   width:100%;
   filter:drop-shadow(0 0 25px #00f5ff);
@@ -233,9 +212,26 @@ h1 span{color:var(--accent)}
 /* Back */
 .back-btn{
   position:absolute;
-  top:20px;left:20px;
+  top:20px;
+  left:20px;
   color:var(--accent);
   cursor:pointer;
+  z-index:5;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  html,body{overflow:auto}
+  .page{
+    position:relative;
+    min-height:100vh;
+    align-items:flex-start;
+    padding-top:100px;
+  }
+  h1{font-size:2rem}
+  .contact-container{grid-template-columns:1fr}
+  .contact-art{max-width:220px;margin:auto}
+  .back-btn{position:fixed;top:70px}
 }
 </style>
 </head>
@@ -268,8 +264,8 @@ h1 span{color:var(--accent)}
   <div class="back-btn" onclick="goHome()">← Back</div>
   <div class="overlay">
     <h1>ABOUT</h1>
-    <p class="quote" style="max-width:900px">
-Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains...
+    <p class="quote">
+Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in cybersecurity...
     </p>
 
     <div class="tools">
@@ -307,110 +303,66 @@ Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering w
 
     <div>
       <p class="contact-text">
-        I’m always ready to connect with you — let’s move forward together for more details.
+        I’m always ready to connect with you — let’s move forward together.
       </p>
-      <div class="form-box">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email ID">
-        <input type="tel" placeholder="Contact Number">
-        <textarea placeholder="Your Message"></textarea>
+
+      <form class="form-box"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="submitted=true">
+
+        <input type="text" name="entry.667343058" placeholder="Your Name" required>
+        <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+        <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
+        <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+
         <div class="form-actions">
-          <button class="btn">Get in Touch</button>
+          <button class="btn" type="submit">Get in Touch</button>
         </div>
-      </div>
+      </form>
+
+      <p id="success-msg">✔ Thank you! Your message has been sent successfully.</p>
+
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
     </div>
   </div>
 </div>
 
 <script>
-const p1 = page1;
-const p2 = page2;
-const p3 = page3;
-
-function hideAll(){
-  [p1, p2, p3].forEach(p=>{
-    p.style.opacity = 0;
-    p.style.transform = "translateX(100%)";
-  });
-}
-
-function openAbout(){
-  hideAll();
-  p2.style.transform = "translateX(0)";
-  p2.style.opacity = 1;
-}
-
-function openContact(){
-  hideAll();
-  p3.style.transform = "translateX(0)";
-  p3.style.opacity = 1;
-}
-
-function goHome(){
-  hideAll();
-  p1.style.transform = "translateX(0)";
-  p1.style.opacity = 1;
-}
+const p1=page1,p2=page2,p3=page3;
+function hideAll(){[p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"})}
+function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)"}
+function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)"}
+function goHome(){hideAll();p1.style.opacity=1;p1.style.transform="translateX(0)"}
 </script>
 
-<!-- PARTICLE ANIMATION -->
 <script>
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-let particlesArray = [];
-let numberOfParticles = 150; // more particles for brighter effect
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener('resize', ()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initParticles();
+let submitted=false;
+const iframe=document.querySelector('iframe[name="hidden_iframe"]');
+iframe.addEventListener('load',()=>{
+  if(submitted){
+    document.getElementById('success-msg').style.display='block';
+    document.querySelector('.form-box').reset();
+    submitted=false;
+  }
 });
+</script>
 
-class Particle {
-  constructor(){
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 3 + 1;
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5;
-  }
-  update(){
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if(this.x > canvas.width) this.x = 0;
-    if(this.x < 0) this.x = canvas.width;
-    if(this.y > canvas.height) this.y = 0;
-    if(this.y < 0) this.y = canvas.height;
-  }
-  draw(){
-    ctx.fillStyle = 'rgba(255,255,255,0.9)'; // bright white
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-    ctx.fill();
-  }
+<script>
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+let particles=[];
+canvas.width=innerWidth;canvas.height=innerHeight;
+onresize=()=>{canvas.width=innerWidth;canvas.height=innerHeight;init()}
+class P{
+ constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.s=Math.random()*2+1;this.vx=Math.random()-.5;this.vy=Math.random()-.5}
+ draw(){ctx.fillStyle="white";ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fill()}
+ update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.x=Math.random()*canvas.width;if(this.y<0||this.y>canvas.height)this.y=Math.random()*canvas.height}
 }
-
-function initParticles(){
-  particlesArray = [];
-  for(let i=0;i<numberOfParticles;i++){
-    particlesArray.push(new Particle());
-  }
-}
-initParticles();
-
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particlesArray.forEach(p=>{
-    p.update();
-    p.draw();
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
+function init(){particles=[];for(let i=0;i<150;i++)particles.push(new P())}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animate)}
+init();animate();
 </script>
 
 </body>
