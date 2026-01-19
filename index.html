@@ -252,6 +252,13 @@ h1 span{color:var(--accent)}
   font-family:'Orbitron';
   color:var(--accent);
 }
+  .about,
+.contact,
+.home {
+  min-height: 100vh;
+  height: auto;
+}
+
 
 /* ✅ MOBILE WORKING */
 @media(max-width:900px){
@@ -347,6 +354,21 @@ h1 span{color:var(--accent)}
     top:15px;
     left:10px;
     font-size:0.85rem;
+  }
+   .about,
+  .contact,
+  .home{
+    min-height:auto;
+    height:auto;
+    padding-bottom:40px;
+  }
+
+  .about-text{
+    line-height:1.6;
+  }
+
+  .tools{
+    margin-bottom:25px;
   }
 }
 
