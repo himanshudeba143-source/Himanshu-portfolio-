@@ -49,6 +49,8 @@ html,body{
   justify-content:center;
   align-items:center;
   transition:1s ease;
+  overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
 }
 
 #page2,#page3{
@@ -70,7 +72,7 @@ html,body{
 
 /* HOME / BACK BUTTON */
 .back-nav{
-  position:absolute;     /* desktop extreme left */
+  position:absolute;
   left:18px;
   top:14px;
   cursor:pointer;
@@ -136,7 +138,9 @@ html,body{
 .overlay{
   text-align:center;
   max-width:1000px;
-  padding:20px;
+  padding:40px 20px;
+  position:relative;
+  z-index:2;
 }
 
 h1{
@@ -159,6 +163,7 @@ h1 span{
   color:var(--sub);
   line-height:1.7;
   margin-top:20px;
+  white-space:pre-line;
 }
 
 /* ================= TOOLS ================= */
@@ -309,12 +314,11 @@ h1 span{
 @media(max-width:900px){
 
   body{
-    overflow:auto;
+    overflow:hidden;
   }
 
   .page{
-    padding-top:140px;
-    overflow-y:auto;
+    padding-top:120px;
   }
 
   .header{
@@ -323,7 +327,6 @@ h1 span{
     padding:14px 18px;
   }
 
-  /* Home button inline on mobile */
   .back-nav{
     position:static;
     margin-right:auto;
@@ -372,7 +375,6 @@ h1 span{
     justify-content:center;
   }
 }
-
 </style>
 </head>
 
@@ -381,11 +383,9 @@ h1 span{
 <canvas id="particle-canvas"></canvas>
 
 <div class="header">
-  <div class="nav-left">
-    <span class="back-nav" onclick="goHome()">
-      <i class="fas fa-arrow-left"></i> Home
-    </span>
-  </div>
+  <span class="back-nav hidden" id="backBtn" onclick="goHome()">
+    <i class="fas fa-arrow-left"></i> Home
+  </span>
 
   <div class="nav">
     <span onclick="openAbout()">About</span>
@@ -396,142 +396,110 @@ h1 span{
   <div class="brand">HS</div>
 </div>
 
-
 <!-- HOME -->
 <div class="page" id="page1">
-    <div class="overlay">
-        <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
-        <h2>A Amorous Cybersecurity Fresher</h2>
-        <p class="quote">“All power is within you: you can do anything and everything”</p>
-        <button class="btn" onclick="openPortfolio()">Explore my portfolio</button>
-    </div>
+  <div class="overlay">
+    <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
+    <h2>A Amorous Cybersecurity Fresher</h2>
+    <p class="quote">“All power is within you: you can do anything and everything”</p>
+    <button class="btn" onclick="openPortfolio()">Explore my portfolio</button>
+  </div>
 </div>
 
 <!-- ABOUT -->
 <div class="page" id="page2">
-   
+  <div class="overlay">
+    <h1>ABOUT</h1>
+    <div class="para-container">
+      <p>
+Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains.
+Completed 10th and 12th from DAV Public School.
 
-    <div class="overlay">
-        <h1 class="about-title">ABOUT</h1>
-      <div class="para-container">
-  <p>
-Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains. Completed 10th and 12th from DAV Public School. Gained hands-on experience through technical internships at ITPlusPoint and CrusadersTechSolution, working on HTML, CSS, PHP, MSSQL, C#, and .NET MVC framework.
-
-Additionally, completed a core internship at OPTCL (Odisha Power Transmission Corporation Ltd.), acquiring practical knowledge in transmission line operations and electrical infrastructure. Skilled in Python, with a growing interest in Al/ML technologies.
-
-An active member of the College Council and Achievers Club, recognized for leadership, time management, and teamwork. Demonstrated strong organizational and collaborative skills while contributing to the successful conduct of an International Gateball Tournament.
+Gained hands-on experience through internships at ITPlusPoint and CrusadersTechSolution.
+Completed core internship at OPTCL.
 
 I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
-
 network security, vulnerability assessment, and cyber defense mechanisms.
-  </p>
-      </div>
-        <p class="about-text"></p>
-
-        <div class="tools">
-            <div class="tool"><i class="fas fa-network-wired"></i> Nmap</div>
-            <div class="tool"><i class="fas fa-wave-square"></i> Wireshark</div>
-            <div class="tool"><i class="fas fa-bug"></i> Burp Suite</div>
-            <div class="tool"><i class="fas fa-skull-crossbones"></i> Metasploit</div>
-            <div class="tool"><i class="fab fa-linux"></i> Kali Linux</div>
-        </div>
-
-        <div class="support-line">
-      <span></span><span></span> Support <span></span><span></span>
-       </div>
-
-        <div class="contact-icons">
-            <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
-            <a href="https://www.instagram.com/__the_dead_rider__?igsh=MXBrc2dwZHRtdzZtbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-
-        <div class="cv-btn">
-            <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </div>
+      </p>
     </div>
+
+    <div class="tools">
+      <div class="tool"><i class="fas fa-network-wired"></i> Nmap</div>
+      <div class="tool"><i class="fas fa-wave-square"></i> Wireshark</div>
+      <div class="tool"><i class="fas fa-bug"></i> Burp Suite</div>
+      <div class="tool"><i class="fas fa-skull-crossbones"></i> Metasploit</div>
+      <div class="tool"><i class="fab fa-linux"></i> Kali Linux</div>
+    </div>
+
+    <div class="contact-icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <div class="cv-btn">
+      <a href="Himanshu Shekhar, 8th Sem, Silicon University.pdf" download class="btn">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- CONTACT -->
 <div class="page" id="page3">
-
   <div class="contact-container">
-    <svg class="contact-art" viewBox="0 0 200 200">
-      <circle cx="100" cy="70" r="35" fill="none" stroke="#00f5ff" stroke-width="3"/>
-      <rect x="40" y="120" width="120" height="50" rx="20" fill="none" stroke="#00f5ff" stroke-width="3"/>
-    </svg>
-
     <div>
-      <p class="contact-text">
-        I’m always ready to connect with you — let’s move forward together for more details.
-      </p>
+      <p class="contact-text">Let’s connect and grow together.</p>
       <div class="form-box">
-        <form
-  id="contactForm"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
-  method="POST"
-  target="hidden_iframe"
-  onsubmit="submitForm(event)"
->
-
-  <input type="text" name="entry.667343058" placeholder="Your Name" required>
-
-  <input type="email" name="entry.1910103486" placeholder="Email ID" required>
-
-  <input type="tel" name="entry.1200133737" placeholder="Contact Number" required>
-
-  <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
-
-  <div class="form-actions">
-    <button class="btn" type="submit">Get in Touch</button>
-  </div>
-
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-<p id="thankYouMessage" style="
-  display:none;
-  color:var(--accent);
-  text-align:center;
-  margin-top:15px;
-  font-weight:bold;
-  font-family:'Orbitron';
-">
-  ✅ Thank you! Your message has been sent.
-</p>
-
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email ID" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <div class="form-actions">
+            <button class="btn">Send</button>
+          </div>
+        </form>
+        <p id="thankYouMessage" style="display:none;color:var(--accent);margin-top:15px;">
+          ✅ Thank you! Your message has been sent.
+        </p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="thank-you" id="thankYou">
-  <h2>Thank you 💙</h2>
-</div>
-
 <script>
-const p1=page1,p2=page2,p3=page3;
+const backBtn=document.getElementById("backBtn");
 function hideAll(){
-  [p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"});
+  [page1,page2,page3].forEach(p=>{
+    p.style.opacity=0;
+    p.style.transform="translateX(100%)";
+  });
 }
-function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)";}
-function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)";}
-function goHome(){hideAll();p1.style.opacity=1;p1.style.transform="translateX(0)";}
+function openAbout(){
+  hideAll();
+  page2.style.opacity=1;
+  page2.style.transform="translateX(0)";
+  backBtn.classList.remove("hidden");
+}
+function openContact(){
+  hideAll();
+  page3.style.opacity=1;
+  page3.style.transform="translateX(0)";
+  backBtn.classList.remove("hidden");
+}
+function goHome(){
+  hideAll();
+  page1.style.opacity=1;
+  page1.style.transform="translateX(0)";
+  backBtn.classList.add("hidden");
+}
 function openPortfolio(){openAbout();}
 function submitForm(e){
   e.preventDefault();
-  const form=document.getElementById("contactForm");
-  form.submit();
-  form.style.display="none";
+  document.getElementById("contactForm").style.display="none";
   document.getElementById("thankYouMessage").style.display="block";
 }
 </script>
 
 <script>
-/* WHITE PARTICLES */
 const c=document.getElementById("particle-canvas"),x=c.getContext("2d");
 let w,h,p=[];
 function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
