@@ -259,6 +259,60 @@ h1 span{color:var(--accent)}
   .contact-container{grid-template-columns:1fr}
   body{overflow:auto;}
 }
+
+  /* ===== MOBILE OPTIMIZATION ===== */
+@media(max-width:900px){
+  /* Allow vertical scrolling */
+  body {
+    overflow:auto;
+  }
+
+  /* Reduce overlay padding */
+  .overlay {
+    padding: 15px 10px;
+  }
+
+  /* Shrink headings */
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Buttons full width */
+  .btn {
+    width: 100%;
+    max-width: 260px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Contact container single column */
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* Form box smaller padding */
+  .form-box {
+    padding: 20px;
+  }
+
+  /* Form inputs slightly smaller */
+  .form-box input,
+  .form-box textarea {
+    padding: 10px;
+  }
+
+  /* Reduce quote margin */
+  .quote {
+    margin: 15px auto;
+  }
+
+  /* Tools section spacing */
+  .tools {
+    gap: 15px;
+  }
+}
+
 </style>
 </head>
 
