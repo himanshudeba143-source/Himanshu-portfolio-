@@ -269,6 +269,7 @@ h1 span{color:var(--accent)}
 
 /* ===== COMPLETE MOBILE FIX ===== */
 /* ===== COMPLETE MOBILE FIX WITH HEADER & SCROLL ===== */
+/* ===== MOBILE FIXES WITH BACK BUTTON, CV BUTTON & CONTACT ADJUSTMENT ===== */
 @media(max-width:900px){
 
   /* Allow vertical scrolling */
@@ -283,7 +284,7 @@ h1 span{color:var(--accent)}
     min-width:100vw;
     overflow-x:hidden;
     overflow-y:auto; /* allow vertical scroll */
-    padding-top:150px; /* space for fixed header */
+    padding-top:70px; /* space for fixed header */
     box-sizing:border-box;
   }
 
@@ -316,7 +317,7 @@ h1 span{color:var(--accent)}
   /* Headings and quotes */
   h1{
     font-size:1.9rem;
-    margin-top:30px; /* push below header */
+    margin-top:20px; /* push below header */
   }
   h2{
     font-size:1.3rem;
@@ -363,27 +364,43 @@ h1 span{color:var(--accent)}
     background:var(--accent);
   }
 
-  /* CV button */
+  /* CV button - move slightly up */
+  .cv-btn{
+    margin-top:15px; /* less margin, moves it up */
+    display:flex;
+    justify-content:center;
+  }
   .cv-btn a{
     display:block;
-    margin:25px auto 40px auto;
+    margin:0 auto 25px auto; /* moves it closer to content above */
     width:100%;
     max-width:260px;
   }
 
-  /* Contact page adjustments */
-  .contact-container{
-    grid-template-columns:1fr;
-    gap:20px;
-    padding:20px;
+  /* Back button adjustments */
+  .back-btn{
+    top:10px; /* slightly lower than header */
+    left:10px;
+    font-size:0.9rem;
   }
+
+  /* Contact page adjustments - move content up */
+  #page3 .contact-container{
+    padding-top:10px; /* move content closer to top */
+    gap:15px;
+  }
+  #page3 .contact-art{
+    margin-top:0;
+  }
+  #page3 .form-box{
+    margin-top:0;
+  }
+
   .contact-text{
     font-size:0.9rem;
-    margin-bottom:20px;
+    margin-bottom:15px;
   }
-  .form-box{
-    padding:18px;
-  }
+
   .form-box input,
   .form-box textarea{
     padding:10px;
@@ -393,22 +410,11 @@ h1 span{color:var(--accent)}
     margin:8px auto;
     display:block;
   }
+
   .form-actions button{
     width:100%;
     max-width:260px;
     margin:auto;
-  }
-  .contact-art{
-    max-width:80%;
-    margin:auto;
-    display:block;
-  }
-
-  /* Back button */
-  .back-btn{
-    top:15px;
-    left:10px;
-    font-size:0.85rem;
   }
 
   /* About, Contact, Home page height adjustments */
