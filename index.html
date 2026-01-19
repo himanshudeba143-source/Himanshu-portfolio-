@@ -482,16 +482,21 @@ getting this type oof mobile view a little bit overlap what will i chnage just a
 
 <body>
 
+<!-- Canvas for particles (background) -->
 <canvas id="particle-canvas"></canvas>
 
+<!-- Header -->
 <div class="header">
   <div class="nav">
     <span onclick="openAbout()">About</span>
     <span onclick="openContact()">Contact</span>
   </div>
-   <div class="brand">|</div>
+  <div class="brand">|</div>
   <div class="brand">HS</div>
 </div>
+
+<!-- HOME, ABOUT, CONTACT pages... -->
+
 
 <!-- HOME -->
 <div class="page" id="page1">
@@ -630,23 +635,83 @@ function submitForm(e){
 </script>
 
 <script>
-/* WHITE PARTICLES */
-const c=document.getElementById("particle-canvas"),x=c.getContext("2d");
-let w,h,p=[];
-function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
-window.onresize=resize;resize();
-for(let i=0;i<120;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,v:Math.random()+.5});
-function anim(){
-x.clearRect(0,0,w,h);
-p.forEach(a=>{
-a.y+=a.v;
-if(a.y>h)a.y=0;
-x.fillStyle="white";
-x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
-});
-requestAnimationFrame(anim);
+<script>
+const canvas = document.getElementById("particle-canvas");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+let particles = [];
+const PARTICLE_COUNT = 120;
+const MAX_DISTANCE = 100; // max distance to draw connecting lines
+
+// Resize canvas
+function resizeCanvas() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
 }
-anim();
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Create particles
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particles.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 2 + 1, // radius
+    vx: (Math.random() - 0.5) * 0.8, // horizontal speed
+    vy: (Math.random() - 0.5) * 0.8  // vertical speed
+  });
+}
+
+// Animate particles
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+
+  // Draw lines between nearby particles
+  for (let i = 0; i < particles.length; i++) {
+    const p1 = particles[i];
+    for (let j = i + 1; j < particles.length; j++) {
+      const p2 = particles[j];
+      const dx = p1.x - p2.x;
+      const dy = p1.y - p2.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MAX_DISTANCE) {
+        ctx.strokeStyle = `rgba(255,255,255,${0.15 - dist/MAX_DISTANCE*0.15})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Move and draw particles
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    // Wrap around edges
+    if (p.x < 0) p.x = w;
+    if (p.x > w) p.x = 0;
+    if (p.y < 0) p.y = h;
+    if (p.y > h) p.y = 0;
+
+    // Glow effect
+    ctx.fillStyle = "white";
+    ctx.shadowColor = "#00f5ff"; // neon blue glow
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
 </script>
 
 </body>
