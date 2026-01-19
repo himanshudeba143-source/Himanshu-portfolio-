@@ -237,6 +237,32 @@ h1 span{color:var(--accent)}
   color:var(--accent);
   cursor:pointer;
 }
+
+/* THANK YOU MESSAGE */
+.thank-you{
+  position:fixed;
+  inset:0;
+  background:rgba(1,8,20,.95);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 1s ease;
+}
+.thank-you.show{opacity:1}
+.thank-you h2{
+  font-family:'Orbitron';
+  color:var(--accent);
+  text-shadow:0 0 20px var(--accent);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .contact-container{grid-template-columns:1fr}
+  h1{font-size:2.2rem}
+}
 </style>
 </head>
 
@@ -310,16 +336,30 @@ Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering w
         I’m always ready to connect with you — let’s move forward together for more details.
       </p>
       <div class="form-box">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email ID">
-        <input type="tel" placeholder="Contact Number">
-        <textarea placeholder="Your Message"></textarea>
-        <div class="form-actions">
-          <button class="btn">Get in Touch</button>
-        </div>
+        <form id="contactForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdtdCNFfdHc5brJchKAqjXdTsTQZk9_n-TPX4hed0VpciMp4g/formResponse"
+          method="POST"
+          target="hidden_iframe">
+
+          <input type="text" name="entry.667343058" placeholder="Your Name" required>
+          <input type="email" name="entry.1910103486" placeholder="Email ID" required>
+          <input type="tel" name="entry.1200133737" placeholder="Contact Number">
+          <textarea name="entry.1354389104" placeholder="Your Message" required></textarea>
+
+          <div class="form-actions">
+            <button class="btn" type="submit">Get in Touch</button>
+          </div>
+        </form>
+
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
       </div>
     </div>
   </div>
+</div>
+
+<!-- THANK YOU -->
+<div class="thank-you" id="thankYou">
+  <h2>Thank you for reaching out 💙</h2>
 </div>
 
 <script>
@@ -328,89 +368,46 @@ const p2 = page2;
 const p3 = page3;
 
 function hideAll(){
-  [p1, p2, p3].forEach(p=>{
-    p.style.opacity = 0;
-    p.style.transform = "translateX(100%)";
+  [p1,p2,p3].forEach(p=>{
+    p.style.opacity=0;
+    p.style.transform="translateX(100%)";
   });
 }
+function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)";}
+function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)";}
+function goHome(){hideAll();p1.style.opacity=1;p1.style.transform="translateX(0)";}
 
-function openAbout(){
-  hideAll();
-  p2.style.transform = "translateX(0)";
-  p2.style.opacity = 1;
-}
-
-function openContact(){
-  hideAll();
-  p3.style.transform = "translateX(0)";
-  p3.style.opacity = 1;
-}
-
-function goHome(){
-  hideAll();
-  p1.style.transform = "translateX(0)";
-  p1.style.opacity = 1;
-}
+const form=document.getElementById('contactForm');
+const thankYou=document.getElementById('thankYou');
+form.addEventListener('submit',()=>{
+  thankYou.classList.add('show');
+  setTimeout(()=>{
+    thankYou.classList.remove('show');
+    form.reset();
+  },3000);
+});
 </script>
 
-<!-- PARTICLE ANIMATION -->
 <script>
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-let particlesArray = [];
-let numberOfParticles = 150; // more particles for brighter effect
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener('resize', ()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initParticles();
-});
-
-class Particle {
-  constructor(){
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 3 + 1;
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5;
-  }
-  update(){
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if(this.x > canvas.width) this.x = 0;
-    if(this.x < 0) this.x = canvas.width;
-    if(this.y > canvas.height) this.y = 0;
-    if(this.y < 0) this.y = canvas.height;
-  }
-  draw(){
-    ctx.fillStyle = 'rgba(255,255,255,0.9)'; // bright white
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-    ctx.fill();
-  }
-}
-
-function initParticles(){
-  particlesArray = [];
-  for(let i=0;i<numberOfParticles;i++){
-    particlesArray.push(new Particle());
-  }
-}
-initParticles();
-
-function animateParticles(){
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+let particles=[];
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+window.onresize=()=>{canvas.width=innerWidth;canvas.height=innerHeight;}
+for(let i=0;i<150;i++)particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,s:Math.random()*3+1,dx:(Math.random()-.5)*1.5,dy:(Math.random()-.5)*1.5});
+function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  particlesArray.forEach(p=>{
-    p.update();
-    p.draw();
+  particles.forEach(p=>{
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
+    if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;
+    ctx.fillStyle="rgba(255,255,255,.9)";
+    ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);ctx.fill();
   });
-  requestAnimationFrame(animateParticles);
+  requestAnimationFrame(animate);
 }
-animateParticles();
+animate();
 </script>
 
 </body>
