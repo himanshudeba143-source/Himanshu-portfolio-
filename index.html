@@ -49,7 +49,7 @@ html,body{
   justify-content:center;
   align-items:center;
   transition:1s ease;
-  overflow-y:scroll;
+  overflow-y:auto;
   -webkit-overflow-scrolling:touch;
 }
 
@@ -70,7 +70,6 @@ html,body{
   z-index:999;
 }
 
-/* HOME / BACK BUTTON */
 .back-nav{
   position:absolute;
   left:18px;
@@ -92,7 +91,6 @@ html,body{
   display:none;
 }
 
-/* NAV RIGHT */
 .nav{
   margin-left:auto;
   display:flex;
@@ -117,7 +115,7 @@ html,body{
   margin-left:10px;
 }
 
-/* ================= BUTTONS ================= */
+/* ================= BUTTON ================= */
 .btn{
   padding:14px 36px;
   border-radius:30px;
@@ -134,7 +132,7 @@ html,body{
   box-shadow:0 0 25px var(--accent);
 }
 
-/* ================= HOME ================= */
+/* ================= COMMON ================= */
 .overlay{
   text-align:center;
   max-width:1000px;
@@ -229,17 +227,11 @@ h1 span{
     0 0 35px var(--accent);
 }
 
-/* ================= CV BUTTON ================= */
+/* ================= CV ================= */
 .cv-btn{
   margin-top:25px;
   display:flex;
   justify-content:center;
-}
-
-.cv-btn a{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
 }
 
 /* ================= CONTACT ================= */
@@ -262,118 +254,13 @@ h1 span{
   padding:30px;
   border-radius:22px;
   border:1px solid var(--accent);
-  box-shadow:0 0 30px rgba(0,245,255,.2);
-}
-
-.form-box input,
-.form-box textarea{
-  width:100%;
-  background:transparent;
-  border:1px solid rgba(0,245,255,.5);
-  color:white;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:15px;
-  outline:none;
-}
-
-.form-box textarea{
-  height:120px;
-  resize:none;
-}
-
-.form-actions{
-  display:flex;
-  justify-content:flex-end;
-}
-
-/* ================= THANK YOU OVERLAY ================= */
-.thank-you{
-  position:fixed;
-  inset:0;
-  background:rgba(1,8,20,.95);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 1s;
-  z-index:9999;
-}
-
-.thank-you.show{
-  opacity:1;
-}
-
-.thank-you h2{
-  font-family:'Orbitron';
-  color:var(--accent);
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-
-  body{
-    overflow:hidden;
-  }
-
-  .page{
-    padding-top:120px;
-  }
-
-  .header{
-    top:0;
-    background:var(--bg);
-    padding:14px 18px;
-  }
-
-  .back-nav{
-    position:static;
-    margin-right:auto;
-  }
-
-  h1{
-    font-size:1.9rem;
-    margin-top:30px;
-  }
-
-  .quote{
-    font-size:.95rem;
-    max-width:90%;
-  }
-
-  .tools{
-    gap:12px;
-  }
-
-  .tool{
-    padding:10px 16px;
-    font-size:.85rem;
-  }
-
-  .contact-container{
-    grid-template-columns:1fr;
-    gap:25px;
-  }
-
-  .form-box{
-    padding:18px;
-  }
-
-  .form-box input,
-  .form-box textarea{
-    font-size:.9rem;
-  }
-
-  .cv-btn{
-    margin:30px 0 40px;
-  }
-
-  .cv-btn a{
-    width:100%;
-    max-width:260px;
-    justify-content:center;
-  }
+  .page{padding-top:120px;}
+  .contact-container{grid-template-columns:1fr;}
+  .back-nav{position:static;margin-right:auto;}
 }
 </style>
 </head>
@@ -402,7 +289,7 @@ h1 span{
     <h1>Hello I'm <span>Himanshu Shekhar</span></h1>
     <h2>A Amorous Cybersecurity Fresher</h2>
     <p class="quote">“All power is within you: you can do anything and everything”</p>
-    <button class="btn" onclick="openPortfolio()">Explore my portfolio</button>
+    <button class="btn" onclick="openAbout()">Explore my portfolio</button>
   </div>
 </div>
 
@@ -410,16 +297,12 @@ h1 span{
 <div class="page" id="page2">
   <div class="overlay">
     <h1>ABOUT</h1>
+
     <div class="para-container">
       <p>
-Motivated B.Tech student (2022-2026) in Electrical and Electronics Engineering with a strong foundation in both core and technical domains.
-Completed 10th and 12th from DAV Public School.
-
-Gained hands-on experience through internships at ITPlusPoint and CrusadersTechSolution.
-Completed core internship at OPTCL.
-
-I am a passionate Cybersecurity fresher with strong interest in ethical hacking,
-network security, vulnerability assessment, and cyber defense mechanisms.
+Motivated B.Tech student (2022–2026) in Electrical and Electronics Engineering.
+Passionate Cybersecurity fresher with interest in ethical hacking,
+network security, vulnerability assessment, and cyber defense.
       </p>
     </div>
 
@@ -431,8 +314,14 @@ network security, vulnerability assessment, and cyber defense mechanisms.
       <div class="tool"><i class="fab fa-linux"></i> Kali Linux</div>
     </div>
 
+    <div class="support-line">
+      <span></span><span></span> Support <span></span><span></span>
+    </div>
+
     <div class="contact-icons">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+918093445600"><i class="fas fa-phone"></i></a>
+      <a href="https://www.instagram.com/__the_dead_rider__" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/himanshu-shekhar-muduly" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
 
     <div class="cv-btn">
@@ -446,22 +335,28 @@ network security, vulnerability assessment, and cyber defense mechanisms.
 <!-- CONTACT -->
 <div class="page" id="page3">
   <div class="contact-container">
+
+    <!-- CONTACT SVG RESTORED -->
+    <svg viewBox="0 0 200 200" width="200">
+      <circle cx="100" cy="70" r="35" fill="none" stroke="#00f5ff" stroke-width="3"/>
+      <rect x="40" y="120" width="120" height="50" rx="20" fill="none" stroke="#00f5ff" stroke-width="3"/>
+    </svg>
+
     <div>
       <p class="contact-text">Let’s connect and grow together.</p>
       <div class="form-box">
-        <form id="contactForm" onsubmit="submitForm(event)">
+        <form onsubmit="submitForm(event)">
           <input type="text" placeholder="Your Name" required>
           <input type="email" placeholder="Email ID" required>
           <textarea placeholder="Your Message" required></textarea>
-          <div class="form-actions">
-            <button class="btn">Send</button>
-          </div>
+          <button class="btn">Send</button>
         </form>
         <p id="thankYouMessage" style="display:none;color:var(--accent);margin-top:15px;">
           ✅ Thank you! Your message has been sent.
         </p>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -491,10 +386,9 @@ function goHome(){
   page1.style.transform="translateX(0)";
   backBtn.classList.add("hidden");
 }
-function openPortfolio(){openAbout();}
 function submitForm(e){
   e.preventDefault();
-  document.getElementById("contactForm").style.display="none";
+  e.target.style.display="none";
   document.getElementById("thankYouMessage").style.display="block";
 }
 </script>
