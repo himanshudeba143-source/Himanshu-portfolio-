@@ -384,18 +384,43 @@ network security, vulnerability assessment, and cyber defense mechanisms.
 </div>
 
 <script>
-const p1=page1,p2=page2,p3=page3;
-function hideAll(){[p1,p2,p3].forEach(p=>{p.style.opacity=0;p.style.transform="translateX(100%)"})}
-function openAbout(){hideAll();p2.style.opacity=1;p2.style.transform="translateX(0)"}
-function openContact(){hideAll();p3.style.opacity=1;p3.style.transform="translateX(0)"}
-function goHome(){hideAll();p1.style.opacity=1;p1.style.transform="translateX(0)"}
+const p1 = page1;
+const p2 = page2;
+const p3 = page3;
 
-const form=document.getElementById('contactForm');
-const ty=document.getElementById('thankYou');
-form.addEventListener('submit',()=>{
-  ty.classList.add('show');
-  setTimeout(()=>{ty.classList.remove('show');form.reset()},3000);
-});
+function hideAll(){
+  [p1, p2, p3].forEach(p=>{
+    p.style.opacity = 0;
+    p.style.transform = "translateX(100%)";
+  });
+}
+
+function openAbout(){
+  hideAll();
+  p2.style.transform = "translateX(0)";
+  p2.style.opacity = 1;
+}
+
+function openContact(){
+  hideAll();
+  p3.style.transform = "translateX(0)";
+  p3.style.opacity = 1;
+}
+
+function goHome(){
+  hideAll();
+  p1.style.transform = "translateX(0)";
+  p1.style.opacity = 1;
+}
+</script>
+<script>
+function submitForm(e){
+  e.preventDefault();
+  const form = document.getElementById("contactForm");
+  form.submit();
+  form.style.display="none";
+  document.getElementById("thankYouMessage").style.display="block";
+}
 </script>
 
 </body>
