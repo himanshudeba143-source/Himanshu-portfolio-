@@ -611,81 +611,6 @@ function submitForm(e){
 
 <!-- UPGRADING PARTICLE ANIMATION -->
 <script>
-const canvas = document.getElementById("particle-canvas");
-const ctx = canvas.getContext("2d");
-
-let w, h;
-let particles = [];
-let PARTICLE_COUNT = window.innerWidth < 900 ? 60 : 120; // fewer particles on mobile
-const MAX_DISTANCE = 100;
-
-function resizeCanvas() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  PARTICLE_COUNT = window.innerWidth < 900 ? 60 : 120;
-});
-resizeCanvas();
-
-// create particles
-for (let i = 0; i < PARTICLE_COUNT; i++) {
-  particles.push({
-    x: Math.random() * w,
-    y: Math.random() * h,
-        r: Math.random() * 2 + 1,
-    vx: (Math.random() - 0.5) * 0.8,
-    vy: (Math.random() - 0.5) * 0.8
-  });
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, w, h);
-
-  /* draw connecting lines */
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < MAX_DISTANCE) {
-        ctx.strokeStyle = `rgba(255,255,255,${0.15 - dist / MAX_DISTANCE * 0.15})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
-    }
-  }
-
-  /* draw particles */
-  particles.forEach(p => {
-    p.x += p.vx;
-    p.y += p.vy;
-
-    if (p.x < 0) p.x = w;
-    if (p.x > w) p.x = 0;
-    if (p.y < 0) p.y = h;
-    if (p.y > h) p.y = 0;
-
-    ctx.fillStyle = "white";
-    ctx.shadowColor = "#00f5ff";
-    ctx.shadowBlur = 8;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animateParticles);
-}
-
-animateParticles();
-</script>
-  <script>
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -693,7 +618,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-const particleCount = 150; // increase for more particles
+let animationId = null;
+const particleCount = 180; // brighter & more particles
 
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
@@ -706,10 +632,9 @@ class Particle {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.size = Math.random() * 3 + 1;
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5;
+    this.speedX = (Math.random() - 0.5) * 1.2;
+    this.speedY = (Math.random() - 0.5) * 1.2;
   }
-
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
@@ -719,34 +644,51 @@ class Particle {
     if (this.y > canvas.height) this.y = 0;
     if (this.y < 0) this.y = canvas.height;
   }
-
   draw() {
-    ctx.fillStyle = 'rgba(255,255,255,0.9)'; // bright white
+    ctx.fillStyle = 'rgba(255,255,255,0.95)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
-function initParticles() {
+function initParticles(){
   particles = [];
-  for (let i = 0; i < particleCount; i++) {
+  for(let i = 0; i < particleCount; i++){
     particles.push(new Particle());
   }
 }
 
-function animateParticles() {
+function animateParticles(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => {
     p.update();
     p.draw();
   });
-  requestAnimationFrame(animateParticles);
+  animationId = requestAnimationFrame(animateParticles);
 }
 
-initParticles();
-animateParticles();
+/* ===== CONTROL FUNCTIONS ===== */
+function startParticles(){
+  canvas.style.display = "block";
+  if(!animationId){
+    initParticles();
+    animateParticles();
+  }
+}
+
+function stopParticles(){
+  canvas.style.display = "none";
+  if(animationId){
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+}
+
+/* Start particles ONLY on home initially */
+startParticles();
 </script>
+
 
 
 </body>
