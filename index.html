@@ -677,8 +677,10 @@ class Particle {
   ? Math.random() * 1.5 + 0.5   // mobile
   : Math.random() * 2 + 1;      // desktop
 
-    this.speedX = (Math.random() - 0.5) * 1.1;
-    this.speedY = (Math.random() - 0.5) * 1.1;
+    const speed = window.innerWidth < 768 ? 0.5 : 1.1;
+this.speedX = (Math.random() - 0.5) * speed;
+this.speedY = (Math.random() - 0.5) * speed;
+
   }
   update() {
     this.x += this.speedX;
